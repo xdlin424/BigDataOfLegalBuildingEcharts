@@ -1,0 +1,186 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+.clearfix:after{
+    content:'';
+    display:block;
+    overflow:hidden;
+    visibility:hidden;
+    clear:both;
+    height:0;
+    width:0;
+}
+#app{
+    width:100%;
+    margin:0 auto;
+    background:rgb(245,245,245);
+}
+
+#app input{
+    border-radius: 3px;
+    height:30px;
+    border:1px solid gray;
+    margin-top:5px;
+    padding: 2px 10px;
+}
+#app>div.content{
+    width:1202px;
+    margin:0 auto;
+    background:white;
+    border:1px solid #e5e5e5;
+}
+#app>div.content .headerTop{
+    padding:10px 0;
+    height:70px;
+    width:100%;
+    line-height:50px;
+    font-size:22px;
+    text-align:center;
+    border-bottom:1px solid #e5e5e5;
+}
+#app>div.content .contentItem{
+    margin: 10px 0;
+    padding:0 20px;
+}
+#app>div.content .diviliedLine{
+    width:100%;
+    height:1px;
+    background:#e5e5e5;
+}
+#app>div.content .totalNum .totalItem{
+    height:40px;
+    line-height:40px;
+    width:50%;
+}
+#app>div.content .totalNum .totalItem p{
+    width:120px;
+    padding-right:10px;
+    height:40px;
+    line-height:40px;
+    text-align:right;
+}
+#app>div.content .pic2 .totalItem p{
+    width:150px;
+}
+#app>div.content .pic .picTitle{
+    height:40px;
+    line-height:40px;
+    padding-left:10px;
+    border-left:5px solid green;
+    background:#e5e5e5;
+}
+#app>div.content .pic .picContent{
+    margin-bottom: 10px;
+}
+#app>div.content .pic .picContent .picYearItem{
+    border-bottom:1px solid #e5e5e5;
+}
+#app>div.content .pic .picContent .picYearItem .item{
+    padding: 0 128px;
+}
+#app>div.content .pic .picContent .picItem{
+    height:40px;
+    line-height:40px;
+}
+#app>div.content .pic .picContent .picItem .item1{
+    width:220px;
+    height:40px;
+    padding-left:20px;
+}
+#app>div.content .pic .picContent .picItem .item2{
+    width:400px;
+    text-align:center;
+}
+#app>div.content .pic .picContent .picItem .item3{
+    width:400px;
+    text-align:center;
+}
+#app>div.content .pic .picContent .picItem p{
+    width:80px;
+    text-align:right;
+}
+#app>div.content .pic .picContent .picItem input{
+    width:120px;
+}
+#app>div.content .pic .picContent .picItem .item4{
+    padding: 5px 0;
+}
+#app>div.content .pic .picContent .picItem .item4 .btn{
+    height:30px;
+    line-height:30px;
+    color:white;
+    cursor:pointer;
+    padding:0 15px;
+    margin-left:10px;
+    border-radius: 3px;
+    font-size:14px;
+}
+#app>div.content .pic .picContent .picItem .item4 .addBtn{
+    background:rgb(103,194,58);
+}
+#app>div.content .pic .picContent .picItem .item4 .addBtn:hover{
+    background:rgb(133,206,97);
+}
+#app>div.content .pic .picContent .picItem .item4 .delBtn{
+    background:rgb(245,108,108);
+}
+#app>div.content .pic .picContent .picItem .item4 .delBtn:hover{
+    background:rgb(247,137,137);
+}
+#app>div.content .pic3 .contentItem{
+    padding:0 30px;
+}
+#app>div.content .pic3 .contentItem .totalItem{
+    width:380px;
+}
+#app>div.content .pic3 .contentItem .totalItem p{
+    width:150px;
+}
+
+#app>div.content .pic4 .contentItem .totalItem p{
+    width:220px;
+}
+#app>div.content .pic4 .contentItem .totalItem input{
+    width:120px;
+}
+#app>div.content .footer{
+    padding: 60px 0 100px 0;
+    width:180px;
+    margin:0 auto;
+}
+#app>div.content .footer .btn{
+    height:40px;
+    width:80px;
+    line-height:40px;
+    text-align:center;
+    border-radius:4px;
+    color:white;
+    cursor:pointer;
+}
+#app>div.content .footer .saveBtn{
+    background:rgb(64,158,255);
+}
+#app>div.content .footer .saveBtn:hover{
+    background:rgb(102,177,255);
+}
+#app>div.content .footer .cancelBtn{
+    border:1px solid gray;
+    line-height:38px;
+    color:black;
+}
+#app>div.content .footer .cancelBtn:hover{
+    opacity:0.7;
+}
+
+
+
+
+

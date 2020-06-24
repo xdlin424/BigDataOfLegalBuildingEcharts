@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>设置</title>
+        <!--less-->
+        <link rel="stylesheet" href="css/setting.css" />
+        <!--<script src="./libs/less.min.js"></script>-->
+
+        <!--vue-->
+        <script src="./libs/vue.min.js"></script>
+        <!-- 引入element-ui样式 -->
+        <link rel="stylesheet" href="./libs/index.css">
+        <!-- 引入element-ui组件库 -->
+        <script src="./libs/index.js"></script>
+</head>
+<body>
+<div id="app">
+        <div class="content">
+                <div class="headerTop">深圳前海合作区人民法院数据管理</div>
+                <div class="pic totalNum">
+                        <p class="picTitle">收结案总数</p>
+                        <div class="contentItem clearfix">
+                                <div class="totalItem left">
+                                        <p class="left">收案总数：</p>
+                                        <input class="left" type="text" v-model="saTotal">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">结案总数：</p>
+                                        <input class="left" type="text" v-model="jaTotal">
+                                </div>
+                        </div>
+
+                </div>
+                <div class="diviliedLine"></div>
+                <div class="pic pic1">
+                        <p class="picTitle">收结案数据对比（小年份在前，大年份在后，大小年份顺序不能颠倒）</p>
+                        <div class="picContent">
+                                <div class="picItem picYearItem clearfix">
+                                        <div class="item1 left"></div>
+                                        <div class="item2 item left"><input class="left" type="text" v-model="yearArrList.sYear">年</div>
+                                        <div class="item3 item left"><input class="left" type="text" v-model="yearArrList.eYear">年</div>
+                                </div>
+                                <div class="picItem clearfix" v-for="(item, index) in sjaList">
+                                        <div class="item1 left">
+                                                <p class="left">月份：</p>
+                                                <input class="left" type="text" v-model="item.month">
+                                        </div>
+                                        <div class="item2 clearfix left">
+                                                <div class="left">
+                                                        <p class="left">收案：</p>
+                                                        <input class="left" type="text"  v-model="item.saDownYear">
+                                                </div>
+                                                <div class="left">
+                                                        <p class="left">结案：</p>
+                                                        <input class="left" type="text"  v-model="item.jaDownYear">
+                                                </div>
+                                        </div>
+                                        <div class="item3 clearfix left">
+                                                <div class="left">
+                                                        <p class="left">收案：</p>
+                                                        <input class="left" type="text" v-model="item.saUpYear">
+                                                </div>
+                                                <div class="left">
+                                                        <p class="left">结案：</p>
+                                                        <input class="left" type="text" v-model="item.jaUpYear">
+                                                </div>
+                                        </div>
+                                        <div class="item4 clearfix left clearfix" v-show="index == sjaList.length-1">
+                                                <div class="addBtn btn left" @click="addSjaItem(item, index)">添加</div>
+                                                <div class="delBtn btn left" @click="delSjaItem(item, index)">删除</div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="diviliedLine"></div>
+                <div class="pic totalNum pic2">
+                        <p class="picTitle">涉外涉港澳台、涉自贸区案件数及占比</p>
+                        <div class="contentItem clearfix">
+                                <div class="totalItem left">
+                                        <p class="left">涉外涉港澳台：</p>
+                                        <input class="left" type="text" v-model="picData2.gatNum">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">涉自贸区：</p>
+                                        <input class="left" type="text" v-model="picData2.zmqNum">
+                                </div>
+                        </div>
+                </div>
+                <div class="diviliedLine"></div>
+                <div class="pic totalNum pic3">
+                        <p class="picTitle">适用香港法、域外法案件情况</p>
+                        <div class="contentItem clearfix">
+                                <div class="totalItem left">
+                                        <p class="left">适用香港法：</p>
+                                        <input class="left" type="text" v-model="picData3.xgfNum">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">适用国际公约：</p>
+                                        <input class="left" type="text" v-model="picData3.gjgyNum">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">适用澳门法：</p>
+                                        <input class="left" type="text" v-model="picData3.amfNum">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">适用孟加拉国法：</p>
+                                        <input class="left" type="text" v-model="picData3.mjlgfNum">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">适用蒙古国法：</p>
+                                        <input class="left" type="text" v-model="picData3.mggfNum">
+                                </div>
+                        </div>
+
+                </div>
+                <div class="diviliedLine"></div>
+                <div class="pic totalNum pic3">
+                        <p class="picTitle">涉外涉港澳台案件分布情况</p>
+                        <div class="contentItem clearfix">
+                                <div class="totalItem left">
+                                        <p class="left">香港：</p>
+                                        <input class="left" type="text" v-model="picData4.xg">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">澳门：</p>
+                                        <input class="left" type="text" v-model="picData4.am">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">台湾：</p>
+                                        <input class="left" type="text" v-model="picData4.tw">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">美国：</p>
+                                        <input class="left" type="text" v-model="picData4.mg">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">加拿大：</p>
+                                        <input class="left" type="text" v-model="picData4.jnd">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">韩国：</p>
+                                        <input class="left" type="text" v-model="picData4.hg">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">马来西亚：</p>
+                                        <input class="left" type="text" v-model="picData4.mlxy">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">新加坡：</p>
+                                        <input class="left" type="text" v-model="picData4.xjp">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">澳大利亚：</p>
+                                        <input class="left" type="text" v-model="picData4.adly">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">日本：</p>
+                                        <input class="left" type="text" v-model="picData4.rb">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">英国：</p>
+                                        <input class="left" type="text" v-model="picData4.yg">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">印度尼西亚：</p>
+                                        <input class="left" type="text" v-model="picData4.ydnxy">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">德国：</p>
+                                        <input class="left" type="text" v-model="picData4.dg">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">俄罗斯：</p>
+                                        <input class="left" type="text" v-model="picData4.els">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">法国：</p>
+                                        <input class="left" type="text" v-model="picData4.fg">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">荷兰：</p>
+                                        <input class="left" type="text" v-model="picData4.hn">
+                                </div>
+                        </div>
+                </div>
+                <div class="diviliedLine"></div>
+                <div class="pic totalNum pic3 pic4">
+                        <p class="picTitle">多元化纠纷解决机制数据</p>
+                        <div class="contentItem clearfix">
+                                <div class="totalItem left">
+                                        <p class="left">一带一路国际商事调解中心：</p>
+                                        <input class="left" type="text" v-model="picData5.ydylgjsstjzx">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">贸促会：</p>
+                                        <input class="left" type="text" v-model="picData5.mch">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">律师：</p>
+                                        <input class="left" type="text" v-model="picData5.ls">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">外籍调解员：</p>
+                                        <input class="left" type="text" v-model="picData5.wjtjy">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">港澳台籍调解员：</p>
+                                        <input class="left" type="text" v-model="picData5.gatjtjy">
+                                </div>
+                        </div>
+                </div>
+                <div class="diviliedLine"></div>
+                <div class="pic totalNum pic3 pic4">
+                        <p class="picTitle">自贸区案件类型及数据</p>
+                        <div class="contentItem clearfix">
+                                <div class="totalItem left">
+                                        <p class="left">合同纠纷：</p>
+                                        <input class="left" type="text" v-model="picData6.htjf">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">知识产权纠纷：</p>
+                                        <input class="left" type="text" v-model="picData6.zscqjf">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">劳动争议：</p>
+                                        <input class="left" type="text" v-model="picData6.ldzy">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">民间借贷纠纷：</p>
+                                        <input class="left" type="text" v-model="picData6.mjjdjf">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">融资租赁合同纠纷：</p>
+                                        <input class="left" type="text" v-model="picData6.rzzlhtjf">
+                                </div>
+                                <div class="totalItem left">
+                                        <p class="left">保理合同纠纷：</p>
+                                        <input class="left" type="text" v-model="picData6.blhtjf">
+                                </div>
+                        </div>
+                </div>
+
+                <div class="footer clearfix">
+                        <div class="saveBtn btn left" @click="save">保存</div>
+                        <div class="cancelBtn btn right" @click="cancel">取消</div>
+                </div>
+        </div>
+</div>
+
+<script src="./js/setting.js"></script>
+</body>
+</html>

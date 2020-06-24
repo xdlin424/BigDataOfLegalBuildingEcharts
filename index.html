@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>大数据</title>
+        <link rel="stylesheet" type="text/css" href="./css/index.css" />
+        <!--vue-->
+        <script src="./libs/vue.min.js"></script>
+        <!--echerts-->
+        <script type="text/javascript" src="./libs/echarts.min.js"></script>
+        <!-- 引入element-ui样式 -->
+        <!--<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">-->
+        <link rel="stylesheet" href="./libs/index.css">
+        <!-- 引入element-ui组件库 -->
+        <!--<script src="https://unpkg.com/element-ui/lib/index.js"></script>-->
+        <script src="./libs/index.js"></script>
+</head>
+<body>
+<div id="app">
+        <div class="logoDiv">
+                <div class="imgBox">
+                        <div class="logoBox left" :class="{'changeLogo':changeLogo}"></div>
+                        <img class="left" src="./img/7.png" alt="">
+                </div>
+                <p class="textBox">
+                        <span class="tit1">收案总数:</span>
+                        <span class="num" v-text="params.saTotal"></span>
+                        <span class="tit2">结案总数:</span>
+                        <span class="num" v-text="params.jaTotal"></span>
+                </p>
+        </div>
+        <div class="timeBox">
+                {{time1}}&nbsp; {{time2}}&nbsp; {{time3}}
+        </div>
+        <div class="mapDiv">
+                <!--启明星的指引-->
+                <div class="fivePointedStar"><i class="el-icon-star-on"></i></div>
+                <!--人性闪光点-->
+                <div class="qhStar"></div>
+                <p class="qhText">前海</p>
+                <div class="flashStar star1"></div>
+                <div class="flashStar star2"></div>
+                <div class="flashStar star3"></div>
+                <div class="flashStar star4"></div>
+                <div class="flashStar star5"></div>
+                <div class="flashStar star6"></div>
+                <div class="flashStar star7"></div>
+                <div class="flashStar star8"></div>
+                <div class="flashStar star9"></div>
+                <div class="flashStar star10"></div>
+                <div class="flashStar star11"></div>
+                <div class="flashStar star12"></div>
+                <div class="flashStar star13"></div>
+                <div class="flashStar star14"></div>
+                <div class="flashStar star15"></div>
+                <div class="flashStar star16"></div>
+                <div class="flashStar star17"></div>
+                <div class="flashStar star18"></div>
+                <div class="flashStar star19"></div>
+                <div class="flashStar star20"></div>
+                <div class="flashStar star21"></div>
+                <div class="flashStar star22"></div>
+                <div class="flashStar star23"></div>
+
+                <!--狗链子-->
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+                <div class="line line3"></div>
+                <div class="line line4"></div>
+                <div class="line line5"></div>
+                <div class="line line6"></div>
+                <div class="line line7"></div>
+                <div class="line line8"></div>
+                <div class="line line9"></div>
+                <!--<div class="line line10"></div>-->
+                <div class="line line11"></div>
+                <div class="line line12"></div>
+                <div class="line line13"></div>
+                <div class="line line14"></div>
+                <div class="line line15"></div>
+                <div class="line line16"></div>
+                <div class="line line17"></div>
+                <div class="line line18"></div>
+                <div class="line line19"></div>
+                <div class="line line20"></div>
+                <div class="line line21"></div>
+                <div class="line line22"></div>
+                <div class="line line23"></div>
+                <div class="line line24"></div>
+
+        </div>
+
+        <!--echerts组件-->
+
+        <!--收结案数据对比图-->
+        <div id="closingCaseView"></div>
+
+        <!--涉外涉港澳台、涉自贸区案件数及占比-->
+        <div id="swgatCaseView"></div>
+
+        <!--域外法适用案件-->
+        <div id="ywfsyCaseView"></div>
+
+        <!--涉外涉港澳台案件分布情况-->
+        <div id="ssCaseView"></div>
+
+        <!--多元化纠纷解决数据-->
+        <div id="dyhjfCaseView"></div>
+
+        <!--自贸区案件类型-->
+        <div id="zmqCaseView">
+                <p class="baseTitle">自贸区主要案件类型</p>
+                <div class="bgBox">
+                        <div class="item" v-for="(item, index) in amqList" :class="'item'+(index + 1)">
+                                <p class="title" v-text="item.txt"></p>
+                                <p class="num" v-text="item.num"></p>
+                        </div>
+                </div>
+        </div>
+
+        <!--辅助元素-->
+        <div class="yaxiasLine"></div>
+        <div class="titleLeftBorder titleLeftBorder1"></div>
+        <div class="titleLeftBorder titleLeftBorder2"></div>
+        <div class="titleLeftBorder titleLeftBorder3"></div>
+        <div class="titleLeftBorder titleLeftBorder4"></div>
+        <div class="titleLeftBorder titleLeftBorder5"></div>
+</div>
+<script src="./js/index.js"></script>
+<!--less-->
+<!--<script src="./libs/less.min.js"></script>-->
+</body>
+</html>
